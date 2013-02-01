@@ -78,5 +78,5 @@ int main() {
     }
     printf("\n");
 
-    exit(0);
+    exit(EXIT_SUCCESS);
 }

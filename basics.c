@@ -16,5 +16,5 @@ int answer;
 
    answer = mean(i,j);
    printf("The mean of %d and %d is %d\n", i, j, answer);
-   exit (0);
+   exit (EXIT_SUCCESS);
 }
