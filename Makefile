@@ -16,6 +16,13 @@ $(objects): %: %.c
 asm: $(addsuffix .s,$(objects))
 
 # Test
+.PHONY: %.cppcheck
+%.cppcheck: %.c
+	cppcheck $<
+
+.PHONY: cppcheck
+cppcheck: $(addsuffix .cppcheck,$(objects))
+
 .PHONY: %.valgrind
 %.valgrind: %
 	valgrind ./$<
@@ -24,7 +31,7 @@ asm: $(addsuffix .s,$(objects))
 valgrind: $(addsuffix .valgrind,$(objects))
 
 .PHONY: test
-test: valgrind
+test: cppcheck valgrind
 
 # Clean up
 .PHONY: clean
