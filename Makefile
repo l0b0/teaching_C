@@ -23,6 +23,13 @@ asm: $(addsuffix .s,$(objects))
 .PHONY: cppcheck
 cppcheck: $(addsuffix .cppcheck,$(objects))
 
+.PHONY: %.splint
+%.splint: %.c
+	splint $<
+
+.PHONY: splint
+splint: $(addsuffix .splint,$(objects))
+
 .PHONY: %.valgrind
 %.valgrind: %
 	valgrind ./$<
@@ -31,7 +38,7 @@ cppcheck: $(addsuffix .cppcheck,$(objects))
 valgrind: $(addsuffix .valgrind,$(objects))
 
 .PHONY: test
-test: cppcheck valgrind
+test: cppcheck splint valgrind
 
 # Clean up
 .PHONY: clean
