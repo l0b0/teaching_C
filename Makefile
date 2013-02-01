@@ -15,6 +15,17 @@ $(objects): %: %.c
 .PHONY: asm
 asm: $(addsuffix .s,$(objects))
 
+# Test
+.PHONY: %.valgrind
+%.valgrind: %
+	valgrind ./$<
+
+.PHONY: valgrind
+valgrind: $(addsuffix .valgrind,$(objects))
+
+.PHONY: test
+test: valgrind
+
 # Clean up
 .PHONY: clean
 clean:
