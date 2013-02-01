@@ -1,4 +1,4 @@
-objects = basics ex1 ex1-4
+objects = basics ex1 ex1-4 strings
 
 .PHONY: all
 all: $(objects)
