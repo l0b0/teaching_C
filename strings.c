@@ -1,5 +1,6 @@
 /* strings.c */
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 char str1[10];			/* This reserves space for 10 characters */
@@ -13,7 +14,7 @@ char *c_ptr;			/* declares a pointer, but doesn't initialise it. */
 
 unsigned int len;
 
-main()
+int main()
 {
 	/* copy "hello" into str1. If str1 isn't big enough, hard luck */
 	strcpy(str1, "hello");
@@ -50,4 +51,6 @@ main()
 		/* Now copy this part of str1 into str2 */
 		strcpy(str2, c_ptr);
 	}
+
+	exit(EXIT_SUCCESS);
 }

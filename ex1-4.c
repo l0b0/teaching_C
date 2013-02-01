@@ -32,7 +32,7 @@ int get_next_prime(int num)
 	return answer;
 }
 
-main()
+int main()
 {
 	int ii, next_prime;
 	int primes = LENGTH(numbers);
